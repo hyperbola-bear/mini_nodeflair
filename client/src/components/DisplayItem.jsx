@@ -1,6 +1,7 @@
 import React from "react";
-import "./DisplayItem.css";
-import SkillTag from "./SkillTag";
+import "../css/DisplayItem.css";
+//eslint-disable-next-line
+import styles from "../css/input.css";
 
 const DisplayItem = ({
   company_name,
@@ -13,68 +14,67 @@ const DisplayItem = ({
   skills,
 }) => {
   return (
-    <div class="JobListingCard-0-3-2437">
-      <div class="jobListingCardTopInformation-0-3-2445">
-        <div class="topPortion-0-3-2447 biggerTopPortion-0-3-2448">
-          <div class="avatarContainer-0-3-2449">
-            <img
-              class="companyAvatar-0-3-2450"
-              src={company_picture}
-              alt={{ company_name } + "logo"}
-            />
+    <>
+      <div class="jobListingCard outlinePrimary  ">
+        <div class="jobListingCardTopInformation">
+          <div class="parent topPortion">
+            <div class="avatarContainer">
+              <img
+                class="companyAvatar"
+                src={company_picture}
+                alt={{ company_name } + "logo"}
+              />
+            </div>
+            <div class="child grid grid-rows-2">
+              <div class="companynRating">
+                <span>{company_name}&nbsp; &nbsp;</span>
+                <span>{company_rating}&nbsp;★</span>
+              </div>
+              <div class="position">{position}</div>
+            </div>
+            <div class="specialisationContainer absolute top-3 right-5">
+              <div class="specialisationTag">{role}</div>
+            </div>
           </div>
-          <div class="specialisationContainer-0-3-2454 biggerSpecialisationContainer-0-3-2455">
-            <div class="specialisationTag-0-3-2456">{role}</div>
-          </div>
-          <div class="informationContainer-0-3-2451 biggerInformationContainer-0-3-2452">
-            <p class="companynameAndRating-0-3-2453">
-              <span>{company_name} </span>
-              <span> {company_rating}&nbsp;★</span>
-            </p>
-            <h2 class="jobListingCardTitle-0-3-2441">{position}</h2>
-          </div>
-        </div>
-        <div class="jobListingCardDetailsContainer-0-3-2459 biggerJobListingCardDetailsContainer-0-3-2460">
-          <div class="recencyInformationAndCountry-0-3-2461">
-            <span class="recentPosting-0-3-2463">about 5 hours ago </span>
-            <div class="country-0-3-2462">
+          <div class="parent ">
+            <div class="recencyTag child">1 day ago</div>
+            <div class=" child">
               <svg
-                aria-hidden="true"
+                width="16"
+                height="16"
                 focusable="false"
                 data-prefix="fas"
                 data-icon="map-marker-alt"
-                class="svg-inline--fa fa-map-marker-alt "
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 384 512"
               >
                 <path
-                  fill="currentColor"
+                  fill="grey"
                   d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
                 ></path>
               </svg>
-              &nbsp;{company_location}
+            </div>
+            <div class="child text-green-500">Singapore</div>
+            <div>
+              {salary != "" && (
+                <p class="jobListingCardSalary">
+                  <span class="salary">S$6,586 - S$10,873 / mth </span>
+                  <span class="estimatedSalaryTag">EST</span>
+                </p>
+              )}
             </div>
           </div>
-          <div>
-            <p class="jobListingCardSalary-0-3-2443">
-              <span class="salary"> {salary} </span>
-              <span class="estimatedSalaryTag">EST</span>
-            </p>
-          </div>
         </div>
-        <div>
-          <ul>
-            <div class="jobListingCardBottomInformation-0-3-2444">
+        <div class="flexbox">
+          <div class="jobListingCardBottomInformation flex-shrink">
+            <ul>
               {skills.map((skill) => (
-                <span class="techStackContainer-0-3-2485">{skill}</span>
+                <li class="techStackContainer">{skill}</li>
               ))}
-            </div>
-          </ul>
+            </ul>
+          </div>
         </div>
-        <h1>{skills}</h1>
       </div>
-    </div>
+    </>
   );
 };
 

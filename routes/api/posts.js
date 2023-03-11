@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
       company_location,
       position,
       role,
-      salary,
+      salary_range,
       skills,
     } = req.body;
     const newPost = new Post({
@@ -25,8 +25,8 @@ router.post("/", async (req, res) => {
       company_location,
       position,
       role,
-      salary: salary || null,
-      skills: skills,
+      salary_range,
+      skills,
     });
     const post = await newPost.save();
     res.json(post);

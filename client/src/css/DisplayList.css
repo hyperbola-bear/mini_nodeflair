@@ -1,0 +1,32 @@
+.jobListingCardsContainer {
+  width: 100%;
+  max-width: fit-content;
+  flex-shrink: 0;
+  padding-top: 5px;
+}
+
+.outlinePrimary {
+  outline: 2px solid;
+  outline-color: #717774;
+}
+
+.jobListingCard {
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+  font-size: 14px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+  transition: 0.2s;
+  border-radius: 8px;
+  padding-bottom: 40px;
+  background-color: #f8f8f8;
+}
+
+.jobInformationContainer {
+  top: 106px;
+  display: none;
+  padding: 10px 5px;
+  position: sticky;
+  flex-grow: 1;
+  min-width: 0;
+}

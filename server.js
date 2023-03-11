@@ -9,6 +9,7 @@ connectDB();
 app.get("/", (req, res) => res.send("API Running"));
 
 app.use(express.json({ extended: false }));
+app.use(express.static(__dirname + "/public"));
 
 // Define Routes
 app.use("/api/posts", require("./routes/api/posts"));
