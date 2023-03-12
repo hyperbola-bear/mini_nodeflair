@@ -12,16 +12,8 @@
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hyperbola-bear/nodeflair.git"
-  },
   "author": "clement",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hyperbola-bear/nodeflair/issues"
-  },
-  "homepage": "https://github.com/hyperbola-bear/nodeflair#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "config": "^3.3.9",
