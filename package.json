@@ -32,6 +32,7 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.7",
     "concurrently": "^7.6.0",
     "nodemon": "^2.0.21",
