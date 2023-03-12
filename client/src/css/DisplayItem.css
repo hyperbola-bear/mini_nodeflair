@@ -1,7 +1,7 @@
 .jobListingCard {
   cursor: pointer;
-  display: inline-block;
-  flex-direction: row;
+  flex-direction: column;
+  flex-grow: initial;
   overflow: hidden;
   height: 100%;
   width: 100%;
@@ -12,11 +12,50 @@
   border-radius: 8px;
   margin: 10px 10px 10px 10px;
   padding: 16px 16px 16px 16px;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
   flex-wrap: nowrap;
   background-color: #f8f8f8;
   white-space: nowrap;
   transition: transform ease 0.2s;
+}
+@media all and (max-width: 1010px) {
+  .jobListingCard {
+    cursor: pointer;
+    display: inline-block;
+    flex-direction: column;
+    flex-grow: initial;
+    flex-shrink: inherit;
+    overflow: hidden;
+    height: 100%;
+    width: 90%;
+    height: 174px;
+    max-width: 900px;
+    min-width: 380px;
+    position: relative;
+    font-size: 14px;
+    border-radius: 4px;
+    margin: 5px 5px 5px 5px;
+    padding: 8px 8px 8px 8px;
+    flex-wrap: nowrap;
+    background-color: #f8f8f8;
+    white-space: nowrap;
+    transition: transform ease 0.2s;
+  }
+}
+
+.outlinePrimary {
+  outline: 1px solid;
+  outline-color: #9d9d9d;
+}
+
+.outlinePrimary {
+  outline: 1px solid;
+  outline-color: #dfdfdf;
+}
+
+.outlineSecondary {
+  outline: 3px solid;
+  outline-color: #1fc76a;
 }
 
 .jobListingCard:hover {
@@ -66,19 +105,18 @@
   font-weight: 600;
   justify-self: flex-start;
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: #f8f8f8;
 }
 
 .jobListingCardTopInformation {
   height: fit-content;
   display: block;
   position: relative;
-  min-height: 100%;
   margin-bottom: 16px;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  background-color: white;
+  background-color: #f8f8f8;
 }
 
 .jobListingCardTopInformation::after {
@@ -184,7 +222,7 @@
   position: absolute;
   width: 100%;
   white-space: nowrap;
-  background-color: #ffffff;
+  background-color: #f8f8f8;
   border-radius: 8px;
 }
 

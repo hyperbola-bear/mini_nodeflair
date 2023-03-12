@@ -3,7 +3,7 @@ import "../css/DisplayItem.css";
 //eslint-disable-next-line
 import styles from "../css/input.css";
 import { useAtom } from "jotai";
-import { nameAtom } from "../atoms.ts";
+import { positionAtom, idAtom } from "../atoms.ts";
 
 export const DisplayItem = ({
   company_name,
@@ -12,14 +12,13 @@ export const DisplayItem = ({
   company_location,
   position,
   role,
-  salary,
+  salary_range,
   skills,
   days,
   id,
-  callback,
 }) => {
-  const [selectedName, setSelectedName] = useAtom(nameAtom);
-  const [selectedItem, setSelectedItem] = useState("");
+  const [selectedPosition, setSelectedPosition] = useAtom(positionAtom);
+  const [selectedItem, setSelectedItem] = useAtom(idAtom);
 
   // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -31,16 +30,19 @@ export const DisplayItem = ({
 
   const handleClick = (e) => {
     console.log(company_name, id);
-    setSelectedName(company_name);
+    setSelectedPosition(position);
     setSelectedItem(id);
   };
 
   return (
     <>
       <div
-        class="jobListingCard outlinePrimary"
+        class={`jobListingCard ${
+          selectedItem === id ? "outlineSecondary" : "outlinePrimary"
+        }`}
         onClick={(e) => handleClick(e)}
       >
+        {console.log(selectedItem, id)}
         <div class="jobListingCardTopInformation">
           <div class="parent topPortion">
             <div class="avatarContainer">
@@ -90,9 +92,9 @@ export const DisplayItem = ({
               <div class="child text-neutral-600">{company_location}</div>
             </div>
             <div>
-              {salary !== "" && (
+              {salary_range !== "0" && (
                 <p class="jobListingCardSalary">
-                  <span class="salary">S$6,586 - S$10,873 / mth </span>
+                  <span class="salary">{salary_range} </span>
                   <span class="estimatedSalaryTag">EST</span>
                 </p>
               )}

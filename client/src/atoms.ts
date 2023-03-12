@@ -1,5 +1,7 @@
 import { atom } from "jotai";
 
-const nameAtom = atom("");
+const positionAtom = atom("");
 
-export { nameAtom };
+const idAtom = atom("");
+
+export { positionAtom, idAtom };

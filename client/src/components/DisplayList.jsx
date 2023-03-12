@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import DisplayItem from "./DisplayItem";
 import "../css/tailwind.css";
 import "../css/DisplayList.css";
 
 const DisplayList = ({ posts }) => {
   return (
-    <div class="jobListingCardsContainer">
+    <div class="jobListingCardsContainer grid-rows grid">
       <ul>
         {posts.map((post) => (
           <DisplayItem
@@ -15,7 +15,7 @@ const DisplayList = ({ posts }) => {
             company_location={post.company_location}
             position={post.position}
             role={post.role}
-            salary={post.salary_range}
+            salary_range={post.salary_range}
             skills={post.skills}
             days={post.days}
             key={post._id}

@@ -15,9 +15,8 @@ const PostSchema = new mongoose.Schema({
   },
   salary_range: {
     type: String,
-    default: "",
+    default: "0",
   },
-
   days: {
     type: Number,
     default: 1,

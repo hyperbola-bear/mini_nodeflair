@@ -3,16 +3,18 @@ import axios from "axios";
 import DisplayList from "./components/DisplayList";
 import "./css/App.css";
 import { useAtom } from "jotai";
-import { nameAtom } from "./atoms.ts";
+import { positionAtom, idAtom } from "./atoms.ts";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
-  const [selectedName, setSelectedName] = useAtom(nameAtom);
+  const [selectedPosition, setSelectedPosition] = useAtom(positionAtom);
+  const [selectedItem, setSelectedItem] = useAtom(idAtom);
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get("/api/posts");
       setPosts(res.data);
-      setSelectedName(res.data[0].company_name);
+      setSelectedPosition(res.data[0].position);
+      setSelectedItem(res.data[0]._id);
     };
     fetchPosts();
   }, []);
@@ -21,7 +23,7 @@ const App = () => {
     <div class="panels grid grid-cols-2">
       <DisplayList posts={posts} />
       <div class="scrollableContainer">
-        <h3>{selectedName}</h3>
+        <h3>{selectedPosition}</h3>
       </div>
     </div>
   );

@@ -26,7 +26,7 @@
   padding: 20px 50px 50px 20px;
   margin: 16px 16px 16px 16px;
   top: 16px;
-  min-width: 320px;
+  min-width: 500px;
   position: sticky;
   display: block;
   align-items: center;
@@ -34,4 +34,10 @@
   background-color: antiquewhite;
   text-align: center;
   font-size: large;
+}
+
+@media all and (max-width: 1010px) {
+  .scrollableContainer {
+    display: none;
+  }
 }
