@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/DisplayItem.css";
 //eslint-disable-next-line
 import styles from "../css/input.css";
+import { useAtom } from "jotai";
+import { nameAtom } from "../atoms.ts";
 
-const DisplayItem = ({
+export const DisplayItem = ({
   company_name,
   company_picture,
   company_rating,
@@ -12,10 +14,33 @@ const DisplayItem = ({
   role,
   salary,
   skills,
+  days,
+  id,
+  callback,
 }) => {
+  const [selectedName, setSelectedName] = useAtom(nameAtom);
+  const [selectedItem, setSelectedItem] = useState("");
+
+  // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  // const handleCallback = async () => {
+  //   await delay(1000);
+  //   console.log(selectedName);
+  //   callback(selectedName);
+  // };
+
+  const handleClick = (e) => {
+    console.log(company_name, id);
+    setSelectedName(company_name);
+    setSelectedItem(id);
+  };
+
   return (
     <>
-      <div class="jobListingCard outlinePrimary  ">
+      <div
+        class="jobListingCard outlinePrimary"
+        onClick={(e) => handleClick(e)}
+      >
         <div class="jobListingCardTopInformation">
           <div class="parent topPortion">
             <div class="avatarContainer">
@@ -32,30 +57,40 @@ const DisplayItem = ({
               </div>
               <div class="position">{position}</div>
             </div>
-            <div class="specialisationContainer absolute top-3 right-5">
+            <div class="specialisationContainer absolute top-0 right-0">
               <div class="specialisationTag">{role}</div>
             </div>
           </div>
-          <div class="parent ">
-            <div class="recencyTag child">1 day ago</div>
-            <div class=" child">
-              <svg
-                width="16"
-                height="16"
-                focusable="false"
-                data-prefix="fas"
-                data-icon="map-marker-alt"
-                viewBox="0 0 384 512"
-              >
-                <path
-                  fill="grey"
-                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
-                ></path>
-              </svg>
+          <div class="parent lowUpper">
+            <div class="recencyInformationAndCountry">
+              <div class="recencyTag child">
+                {days > 3 ? (
+                  <div class="recencyTag child">{`${days} days ago`} </div>
+                ) : (
+                  <div class="recencyTag child text-green-500">
+                    {days > 1 ? `${days} days ago` : `1 day ago`}
+                  </div>
+                )}{" "}
+              </div>
+              <div class=" child">
+                <svg
+                  width="16"
+                  height="16"
+                  focusable="false"
+                  data-prefix="fas"
+                  data-icon="map-marker-alt"
+                  viewBox="0 0 384 512"
+                >
+                  <path
+                    fill="grey"
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="child text-neutral-600">{company_location}</div>
             </div>
-            <div class="child text-green-500">Singapore</div>
             <div>
-              {salary != "" && (
+              {salary !== "" && (
                 <p class="jobListingCardSalary">
                   <span class="salary">S$6,586 - S$10,873 / mth </span>
                   <span class="estimatedSalaryTag">EST</span>
@@ -64,14 +99,12 @@ const DisplayItem = ({
             </div>
           </div>
         </div>
-        <div class="flexbox">
-          <div class="jobListingCardBottomInformation flex-shrink">
-            <ul>
-              {skills.map((skill) => (
-                <li class="techStackContainer">{skill}</li>
-              ))}
-            </ul>
-          </div>
+        <div class="jobListingCardBottomInformation">
+          <ul>
+            {skills.map((skill) => (
+              <li class="techStackContainer">{skill}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </>

@@ -18,9 +18,9 @@ const PostSchema = new mongoose.Schema({
     default: "",
   },
 
-  date: {
-    type: Date,
-    default: Date.now,
+  days: {
+    type: Number,
+    default: 1,
   },
   skills: [
     {

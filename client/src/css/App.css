@@ -1,5 +1,37 @@
+.jobInformationContainer {
+  align-items: flex-end;
+  top: 106px;
+  display: flexbox;
+  min-width: 10;
+  padding: 10px 5px;
+  position: sticky;
+  flex-grow: 1;
+}
 .panels {
   width: 100%;
   display: flex;
   align-items: flex-start;
+}
+
+.right {
+  width: 100%;
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid blue;
+}
+
+.scrollableContainer {
+  padding: 20px 50px 50px 20px;
+  margin: 16px 16px 16px 16px;
+  top: 16px;
+  min-width: 320px;
+  position: sticky;
+  display: block;
+  align-items: center;
+  border-radius: 8px;
+  background-color: antiquewhite;
+  text-align: center;
+  font-size: large;
 }

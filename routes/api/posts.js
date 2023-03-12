@@ -15,6 +15,7 @@ router.post("/", async (req, res) => {
       company_location,
       position,
       role,
+      days,
       salary_range,
       skills,
     } = req.body;
@@ -25,6 +26,7 @@ router.post("/", async (req, res) => {
       company_location,
       position,
       role,
+      days,
       salary_range,
       skills,
     });
