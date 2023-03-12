@@ -6,7 +6,12 @@ const app = express();
 // Connect Database
 connectDB();
 
-app.get("/", (req, res) => res.send("API Running"));
+//deploy
+app.use(express.static(path.resolve(__dirname, "./client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
 
 app.use(express.json({ extended: false }));
 app.use(express.static(__dirname + "/public"));
