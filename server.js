@@ -1,3 +1,4 @@
+const cors = require("cors");
 const express = require("express");
 const connectDB = require("./config/db");
 const path = require("path");
@@ -8,6 +9,8 @@ const app = express();
 
 // Connect Database
 connectDB();
+
+app.use(cors());
 
 //deploy
 app.use(express.static(path.resolve(__dirname, "./client/build")));
